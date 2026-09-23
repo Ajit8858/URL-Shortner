@@ -98,7 +98,7 @@ async def shorten_url(
     )
 
 
-@router.get("/short.ly/{short_code}", status_code=status.HTTP_302_FOUND)
+@router.get("/{short_code}", status_code=status.HTTP_302_FOUND)
 async def redirect_short_url(short_code: str, db: DbDep, redis: RedisDep):
     """
     Hot path. Order of operations is chosen to minimize p99 latency and
